@@ -1,0 +1,11 @@
+fastapi
+python-multipart
+pypdf
+python-docx
+supabase
+langchain-anthropic
+langchain-voyageai
+langchain-community
+langchain-core
+langgraph
+duckduckgo-search
