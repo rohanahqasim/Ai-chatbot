@@ -3,7 +3,7 @@ python-multipart
 pypdf
 python-docx
 supabase
-langchain-anthropic
+langchain-google-genai
 langchain-voyageai
 langchain-community
 langchain-core
