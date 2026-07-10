@@ -60,7 +60,7 @@ supabase: Client = create_client(
 )
 
 brain = ChatGoogleGenerativeAI(
-    model="gemini-1.5-pro",  # or another supported free tier model name
+    model="gemini-3.5-flash",  # or another supported free tier model name
     temperature=0.2,
     google_api_key=os.environ["GOOGLE_API_KEY"]
 )
