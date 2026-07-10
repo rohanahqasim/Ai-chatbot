@@ -60,10 +60,11 @@ supabase: Client = create_client(
 )
 
 brain = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-1.5-pro",  # or another supported free tier model name
     temperature=0.2,
-    google_api_key=os.environ["GOOGLE_API_KEY"],
+    google_api_key=os.environ["GOOGLE_API_KEY"]
 )
+
 engine = VoyageAIEmbeddings(model="voyage-3.5")
 
 vault = SupabaseVectorStore(
