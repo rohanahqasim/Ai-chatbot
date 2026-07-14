@@ -23,6 +23,7 @@ import docx
 from supabase import create_client, Client
 
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 from langchain_voyageai import VoyageAIEmbeddings
 from langchain_community.vectorstores import SupabaseVectorStore
 from langchain_community.tools import DuckDuckGoSearchRun
@@ -59,11 +60,17 @@ supabase: Client = create_client(
     os.environ["SUPABASE_SERVICE_KEY"],
 )
 
-brain = ChatGoogleGenerativeAI(
-    model="gemini-2.0-flash",
-    temperature=0.2,
-    google_api_key=os.environ["GOOGLE_API_KEY"]
-)
+if os.environ.get("VERCEL"):
+    brain = ChatGoogleGenerativeAI(
+        model="gemini-1.5-pro",
+        temperature=0.2,
+        google_api_key=os.environ["GOOGLE_API_KEY"]
+    )
+else:
+    brain = ChatOllama(
+        model="mistral",
+        temperature=0.2
+    )
 
 engine = VoyageAIEmbeddings(model="voyage-3.5")
 
